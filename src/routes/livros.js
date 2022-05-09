@@ -10,4 +10,7 @@ router.get('/', livrosController.index);
 // /livros/2
 router.put('/:idLivro', livrosController.update);
 
+// livros
+router.post('/', livrosController.store);
+
 module.exports = router;

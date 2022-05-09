@@ -6,6 +6,24 @@ const livrosController = {
 
         return response.json(livros);
     },
+    store: async (request, response) => {
+        const payload = request.body;
+
+        /**
+         * @description Método 1 - Cria uma instancia e salva
+       
+         const livro = Livro.build(payload);
+ 
+         await livro.save();
+       */
+
+        /**
+         * @description Método 2 - Faz o build e osave juntos
+        */
+        const livro = await Livro.create(payload);
+
+        return response.json(livro);
+    },
     update: async (request, response) => {
         const { idLivro } = request.params;
         const payload = request.body;
