@@ -50,6 +50,13 @@ const livrosController = {
 
         return response.json(livro);
     },
+    show: async (request, response) => {
+        const { idLivro } = request.params;
+
+        const livro = await Livro.findOne({ where: { id: idLivro } });
+
+        return response.json(livro);
+    },
 };
 
 module.exports = livrosController;
